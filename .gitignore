@@ -5,3 +5,5 @@ virtual-host
 /vendor/
 composer.json
 composer.phar
+phpunit.xml
+composer.lock
