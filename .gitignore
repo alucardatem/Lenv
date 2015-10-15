@@ -1,0 +1,7 @@
+.idea/
+.vagrant/
+vhost.sh
+virtual-host
+/vendor/
+composer.json
+composer.phar
