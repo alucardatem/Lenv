@@ -10,6 +10,7 @@
     require_once __DIR__ . '/vendor/autoload.php';
 
     $dispatcher = new Dispatcher($_GET);
+
     $output = $dispatcher->dispatch();
     echo $output;
 

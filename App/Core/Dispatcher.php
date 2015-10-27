@@ -19,7 +19,7 @@
         /**
          * Get the URL and store it on object creation
          */
-        public function __construct($queryVars)
+        public function __construct(array $queryVars = [])
         {
 
             $this->queryVars = $queryVars;
@@ -28,17 +28,22 @@
 
         public function getControllerClassName()
         {
-            $this->controllerClassName = "HomeController";
-            if( !empty($this->queryVars['controller']) ) {
-                $this->controllerClassName = '\\Lenv\App\Controllers\\'.ucfirst(strtolower($this->queryVars['controller']))."Controller";
+            if (isset($this->controllerClassName)) {
+                return $this->controllerClassName;
             }
-            return $this->controllerClassName;
 
+            $controller = (!empty($this->queryVars['controller'])) ? $this->queryVars['controller'] : 'home';
+            $this->controllerClassName = '\\Lenv\App\Controllers\\' .
+                                         ucfirst(strtolower($controller))."Controller";
+            return $this->controllerClassName;
 
         }
 
         public function getAction()
         {
+            if (isset($this->action)) {
+                return $this->action;
+            }
             $this->action = "IndexAction";
 
             if( !empty($this->queryVars["action"]) ) {
@@ -47,6 +52,15 @@
             return $this->action;
         }
 
+        public function setControllerClassName($controllerClassName)
+        {
+            $this->controllerClassName = $controllerClassName;
+        }
+
+        public function setMethodName($methodName)
+        {
+            $this->action = $methodName;
+        }
 
         /**
          * That establishes the connection to the requested controller
@@ -65,7 +79,7 @@
             $controller = new $controllerClassName;
 
             if(!method_exists($controller, $methodName) ) {
-                    throw new \Exception('There is no method: ' . $controllerClassName . '::' . $methodName);
+                throw new \Exception('There is no method: ' . $controllerClassName . '::' . $methodName);
             }
 
             return $controller->$methodName();

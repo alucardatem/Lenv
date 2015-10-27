@@ -10,7 +10,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function testIfGetControllerClassNameReturnsCorrectClassName()
     {
-
+        // controller => myController MycontrollerController
         $fakeGet = ["controller" => "inexistent"];
         $expectedResult = "\\Lenv\\App\\Controllers\\InexistentController";
         $dispatcher = new Dispatcher($fakeGet);
@@ -37,11 +37,9 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function testThatDispatchThrowsExceptionforNonExistentController()
     {
-
-            $fakeGet = ["controller" => "inexistent"];
-            $dispatcher = new Dispatcher($fakeGet);
-            $dispatcher->dispatch();
-
+        $fakeGet = ["controller" => "inexistent"];
+        $dispatcher = new Dispatcher($fakeGet);
+        $dispatcher->dispatch();
     }
 
     /**
@@ -50,20 +48,24 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
      */
     public function testThatDispatchThrowsExceptionForMissingMethod()
     {
-
         $fakeGet = ["controller"=>"home","action"=>"inexistent"];
         $dispatched = new Dispatcher($fakeGet);
         $dispatched->dispatch();
     }
 
-    public function testThatDispatcherReturnsTheCorrectMethodForTheHomeController()
+    public function testThatDispatcherReturnsActionOutput()
     {
-        $fakeGet = ["controller"=>"home","action"=>"index"];
-        $dispatcher = new Dispatcher($fakeGet);
-        $dispatchMethod = $dispatcher->dispatch();
-        $this->assertEquals('IndexAction',$dispatchMethod);
+        $className = "\\Lenv\\App\\Controllers\\HomeController";
+        $methodName = "IndexAction";
 
+        $dispatcher = new Dispatcher();
+
+        $dispatcher->setControllerClassName($className);
+        $dispatcher->setMethodName($methodName);
+
+        $dispatchMethod = $dispatcher->dispatch();
+        $this->assertEquals($methodName,$dispatchMethod);
     }
 
-
 }
+
