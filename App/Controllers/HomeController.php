@@ -10,5 +10,8 @@
 
     class HomeController
     {
+        public function indexAction(){
+            return "IndexAction";
+        }
 
     }

@@ -28,28 +28,23 @@
 
         public function getControllerClassName()
         {
-            if( empty($this->queryVars['controller']) ) {
-                $this->controllerName = "home";
-                $this->controllerClassName = "HomeController";
-                return '\\Lenv\App\Controllers\\'.$this->controllerClassName;
+            $this->controllerClassName = "HomeController";
+            if( !empty($this->queryVars['controller']) ) {
+                $this->controllerClassName = '\\Lenv\App\Controllers\\'.ucfirst(strtolower($this->queryVars['controller']))."Controller";
             }
-
-                $this->controllerName = strtolower($this->queryVars['controller']);
-                $this->controllerClassName = ucfirst(strtolower($this->queryVars['controller']))."Controller";
-                return '\\Lenv\App\Controllers\\'.$this->controllerClassName;
+            return $this->controllerClassName;
 
 
         }
 
         public function getAction()
         {
-            if( empty($this->queryVars["action"]) ) {
-                $this->action = "IndexAction";
-                return $this->action;
-            } else {
+            $this->action = "IndexAction";
+
+            if( !empty($this->queryVars["action"]) ) {
                 $this->action = ucfirst(strtolower($this->queryVars["action"]))."Action";
-                return $this->action;
             }
+            return $this->action;
         }
 
 
@@ -70,7 +65,7 @@
             $controller = new $controllerClassName;
 
             if(!method_exists($controller, $methodName) ) {
-                    throw new \Exception('There is no method:' . $controllerClassName . '::' . $methodName);
+                    throw new \Exception('There is no method: ' . $controllerClassName . '::' . $methodName);
             }
 
             return $controller->$methodName();

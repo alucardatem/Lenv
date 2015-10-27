@@ -7,102 +7,63 @@ use Lenv\App\Core\Dispatcher;
 class DispatcherTest extends \PHPUnit_Framework_TestCase
 {
 
-    /**
-     * @param $queryDataProvider
-     * @param $expected
-     * @dataProvider queryControllerDataProvider
-     */
 
-    public function testIfGetControllerClassNameReturnsCorrectClassName($queryDataProvider,$expected)
+    public function testIfGetControllerClassNameReturnsCorrectClassName()
     {
-        $dispatcher = new Dispatcher($queryDataProvider);
+
+        $fakeGet = ["controller" => "inexistent"];
+        $expectedResult = "\\Lenv\\App\\Controllers\\InexistentController";
+        $dispatcher = new Dispatcher($fakeGet);
         $controllerClassName = $dispatcher->getControllerClassName();
-        $this->assertEquals($expected, $controllerClassName);
+        $this->assertEquals($expectedResult, $controllerClassName);
     }
 
 
-    /**
-     * @param $queryDataProvider
-     * @param $expected
-     * @dataProvider queryActionDataProvider
-     */
-    public function testIfGetActionReturnsCorrectActionName($queryDataProvider,$expected)
+
+    public function testIfGetActionReturnsCorrectActionName()
     {
-        $dispatcher = new Dispatcher($queryDataProvider);
+        $fakeGet = ["action" => "test"];
+        $expected = "TestAction";
+        $dispatcher = new Dispatcher($fakeGet);
         $actionName = $dispatcher->getAction();
         $this->assertEquals($expected, $actionName);
     }
 
 
     /**
-     * @param $queryDataProvider
-     * @dataProvider queryControllerDataProvider
      * @expectedException \Exception
-     * @expectedExceptionMessage
+     * @expectedExceptionMessage There is no class \Lenv\App\Controllers\InexistentController
      */
 
-    public function testThatDispatchThrowsExceptionforNonExistentController($queryDataProvider,$expected){
-//        try{
-            $dispatcher = new Dispatcher($queryDataProvider);
-            $controllerClassName = $dispatcher->getControllerClassName();
-            $expectedException = "There is no class ".$controllerClassName;
+    public function testThatDispatchThrowsExceptionforNonExistentController()
+    {
+
+            $fakeGet = ["controller" => "inexistent"];
+            $dispatcher = new Dispatcher($fakeGet);
             $dispatcher->dispatch();
-//        }
-//        catch(\Exception $e){
-//
-//            $message = $e->getMessage();
-//            var_dump($message, $expectedException, '--------------');
-//            $this->assertContains($message,$expectedException);
-//        }
+
     }
 
     /**
-     * @param $queryDataProvider
-     * @dataProvider queryExceptionActionDataProvider
+     * @expectedException \Exception
+     * @expectedExceptionMessage There is no method: \Lenv\App\Controllers\HomeController::InexistentAction
      */
-    public function testThatDispatchThrowsExceptionforNonExistentMethod($queryDataProvider){
-        $this->markTestIncomplete();
-        try{
-            $dispatcher = new Dispatcher($queryDataProvider);
-            $controllerClassName = $dispatcher->getControllerClassName();
-            $actionName = $dispatcher->getAction();
-            $expectedException = "There is no method ".$controllerClassName . '::' . $actionName;
-            $dispatcher->dispatch();
-        }
-        catch(\Exception $e){
-
-            $message = $e->getMessage();
-            $this->assertContains($message,$expectedException);
-        }
-    }
-
-
-
-    public function queryControllerDataProvider()
+    public function testThatDispatchThrowsExceptionForMissingMethod()
     {
-        return
-            [
-                [["controller" => "inexistent"],"\\Lenv\\App\\Controllers\\InexistentController"],
-                [['controller' => 'homex'],"\\Lenv\\App\\Controllers\\HomexController"]
-            ];
-    }
-    public function queryActionDataProvider()
-    {
-        return
-            [
-                [["action" => "test"],"TestAction"],
-                [[],"IndexAction"]
-            ];
-    }
-    public function queryExceptionActionDataProvider()
-    {
-        return
-            [
-                ['controller' => 'home',"action" => "test"],
 
-            ];
+        $fakeGet = ["controller"=>"home","action"=>"inexistent"];
+        $dispatched = new Dispatcher($fakeGet);
+        $dispatched->dispatch();
     }
 
+    public function testThatDispatcherReturnsTheCorrectMethodForTheHomeController()
+    {
+        $fakeGet = ["controller"=>"home","action"=>"index"];
+        $dispatcher = new Dispatcher($fakeGet);
+        $dispatchMethod = $dispatcher->dispatch();
+        $this->assertEquals('IndexAction',$dispatchMethod);
+
+    }
 
 
 }
