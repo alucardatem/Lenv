@@ -12,7 +12,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
     {
         // controller => myController MycontrollerController
         $fakeGet = ["controller" => "inexistent"];
-        $expectedResult = "\\Lenv\\App\\Controllers\\InexistentController";
+        $expectedResult = "\\Lenv\\App\\Controllers\\Inexistent";
         $dispatcher = new Dispatcher($fakeGet);
         $controllerClassName = $dispatcher->getControllerClassName();
         $this->assertEquals($expectedResult, $controllerClassName);
@@ -32,7 +32,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Exception
-     * @expectedExceptionMessage There is no class \Lenv\App\Controllers\InexistentController
+     * @expectedExceptionMessage There is no class \Lenv\App\Controllers\Inexistent
      */
 
     public function testThatDispatchThrowsExceptionforNonExistentController()
@@ -44,7 +44,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Exception
-     * @expectedExceptionMessage There is no method: \Lenv\App\Controllers\HomeController::InexistentAction
+     * @expectedExceptionMessage There is no method: \Lenv\App\Controllers\Home::InexistentAction
      */
     public function testThatDispatchThrowsExceptionForMissingMethod()
     {
@@ -55,7 +55,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function testThatDispatcherReturnsActionOutput()
     {
-        $className = "\\Lenv\\App\\Controllers\\HomeController";
+        $className = "\\Lenv\\App\\Controllers\\Home";
         $methodName = "IndexAction";
 
         $dispatcher = new Dispatcher();

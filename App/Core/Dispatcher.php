@@ -10,9 +10,9 @@
     {
 
 
-        private $controllerName;
-        private $controllerClassName;
-        private $action;
+
+        protected $controllerClassName;
+        protected $action;
         private $queryVars;
 
 
@@ -21,7 +21,6 @@
          */
         public function __construct(array $queryVars = [])
         {
-
             $this->queryVars = $queryVars;
 
         }
@@ -34,7 +33,7 @@
 
             $controller = (!empty($this->queryVars['controller'])) ? $this->queryVars['controller'] : 'home';
             $this->controllerClassName = '\\Lenv\App\Controllers\\' .
-                                         ucfirst(strtolower($controller))."Controller";
+                                         ucfirst(strtolower($controller));
             return $this->controllerClassName;
 
         }
@@ -47,7 +46,7 @@
             $this->action = "IndexAction";
 
             if( !empty($this->queryVars["action"]) ) {
-                $this->action = ucfirst(strtolower($this->queryVars["action"]))."Action";
+                $this->action = ucfirst(strtolower($this->queryVars["action"])) . "Action";
             }
             return $this->action;
         }

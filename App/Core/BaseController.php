@@ -7,29 +7,27 @@
      */
 
     namespace Lenv\App\Core;
+    use Lenv\App\Models;
 
+    class BaseController
+    {
+        protected $layout = "layout/defaultLayout";
 
-    class BaseController{
-
-
-        protected $urlValues;
-        protected $action;
-        protected $model;
-        protected $view;
-
-
-        public function __construct($action, $urlValues) {
-            $this->action = $action;
-            $this->urlValues = $urlValues;
-
-            //establish the view object
-            $this->view = new View(get_class($this), $action);
+        public function renderView($action,array $params = [] )
+        {
+            $view = new View();
+            return $view->render($action,$params);
         }
 
-        //execute method that has been requested
-        public function executeAction() {
-            return $this->{$this->action}();
+        public function render($action, array $params = [])
+        {
+            $content = $this->renderView($action, $params);
+            $viewVars = ['content' => $content];
+            return $this->renderView($this->layout, $viewVars);
         }
 
-
+        public function setLayout($layout)
+        {
+            $this->layout = $layout;
+        }
     }

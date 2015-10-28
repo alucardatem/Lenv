@@ -8,7 +8,9 @@
      */
     namespace Lenv\App\Controllers;
 
-    class HomeController
+    use Lenv\App\Core\BaseController;
+
+    class Home extends BaseController
     {
         public function indexAction(){
             return "IndexAction";
