@@ -16,17 +16,11 @@
 
         public function indexAction()
         {
-
-
             return $this->render('views/contact/index');
-
-
         }
 
         public function resultAction()
         {
-
-
             if (!isset($_POST["Send"])) {
                 return $this->indexAction();
             }
@@ -39,13 +33,10 @@
             $checkFields = $this->checkFields($_SESSION);
             $_SESSION = array_merge($_SESSION,$checkFields);
 
-            
 
             if(count($checkFields)>0)
             {
-
                 return $this->render('views/contact/index',$_SESSION);
-
             }
 
             return $this->render('views/contact/sendData',$viewVars);
