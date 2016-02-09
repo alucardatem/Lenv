@@ -18,6 +18,11 @@
 
     $baseURLPath='/'.implode('/',array_diff($generalPath,$severPath)).'/';
 
+    $mySqlHost = 'localhost';
+    $mySqlUserName = 'root';
+    $mySqlPassword = 'root';
+    $mySqlDatabase = 'newsletter';
+
 
 
 
