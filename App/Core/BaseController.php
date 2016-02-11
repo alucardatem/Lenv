@@ -6,8 +6,9 @@
      * Time: 12:00 PM
      */
 
-    namespace Lenv\App\Core;
-    use Lenv\App\Models;
+namespace Lenv\App\Core;
+use Lenv\App\Models;
+
 
     class BaseController
     {
@@ -29,5 +30,14 @@
         public function setLayout($layout)
         {
             $this->layout = $layout;
+        }
+        public function loadModel($model,$dbLink='')
+        {
+
+            $modelName = '\\Lenv\App\Models\\'.ucfirst(strtolower($model));
+            $modelInstance = new $modelName($dbLink);
+            //var_dump($modelInstance);
+            return $modelInstance;
+            
         }
     }

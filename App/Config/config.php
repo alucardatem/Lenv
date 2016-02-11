@@ -6,11 +6,11 @@
      * Time: 2:42 PM
      */
 
-    namespace Lenv\app\Config;
+    namespace Lenv\App\Config;
 
     $generalPath = explode('/',dirname(__FILE__));
     $severPath = explode('/',$_SERVER['PHP_SELF']);
-    
+
 
     $generalPath = array_values(array_filter($generalPath));
     $severPath = array_values(array_filter($severPath));
@@ -18,10 +18,7 @@
 
     $baseURLPath='/'.implode('/',array_diff($generalPath,$severPath)).'/';
 
-    $mySqlHost = 'localhost';
-    $mySqlUserName = 'root';
-    $mySqlPassword = 'root';
-    $mySqlDatabase = 'newsletter';
+    
 
 
 

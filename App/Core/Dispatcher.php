@@ -66,6 +66,7 @@
          */
         public function dispatch()
         {
+            
 
             $controllerClassName = $this->getControllerClassName();
             $methodName = $this->getAction();

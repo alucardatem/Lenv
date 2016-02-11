@@ -13,7 +13,8 @@
     class Home extends BaseController
     {
         public function indexAction(){
-            return "IndexAction";
+            return "IndexActions";
         }
+        
 
     }

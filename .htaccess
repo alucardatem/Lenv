@@ -1,8 +1,8 @@
-Options -MultiViews
 Options +FollowSymLinks
+Options -MultiViews
 RewriteEngine on
 
-RewriteBase /
+
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

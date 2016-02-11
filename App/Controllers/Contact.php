@@ -8,6 +8,7 @@
 
     namespace Lenv\App\Controllers;
     use Lenv\App\Core\BaseController;
+    use Lenv\App\Core\Models;
     use Lenv\App\Core\View;
 
 

@@ -1,4 +1,4 @@
-<form method="post" action="/contact/result" >
+<form method="post" action="/~rotariudan/Lenv/contact/result" >
     <label for="Name">Name</label> <input type="text" name="Name" id="Name" value="<?php if(isset($Name)) {
         echo $Name;}?>"><br/>
     <?php
