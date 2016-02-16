@@ -1,30 +1,36 @@
-[INFO][08:31:46]-->initialised setup and read configuration file
-[INFO][08:31:46]-->Connection Established
-[INFO][08:32:07]-->initialised setup and read configuration file
-[INFO][08:32:07]-->Connection Established
-[INFO][08:32:11]-->initialised setup and read configuration file
-[INFO][08:32:11]-->Connection Established
-[INFO][08:32:21]-->initialised setup and read configuration file
-[INFO][08:32:21]-->Connection Established
-[INFO][08:32:21]-->initialised setup and read configuration file
-[INFO][08:32:21]-->Connection Established
-[INFO][08:32:21]-->initialised setup and read configuration file
-[INFO][08:32:21]-->Connection Established
-[INFO][08:32:22]-->initialised setup and read configuration file
-[INFO][08:32:22]-->Connection Established
-[INFO][08:32:45]-->initialised setup and read configuration file
-[INFO][08:32:45]-->Connection Established
-[INFO][08:32:45]-->initialised setup and read configuration file
-[INFO][08:32:45]-->Connection Established
-[INFO][08:32:45]-->initialised setup and read configuration file
-[INFO][08:32:45]-->Connection Established
-[INFO][08:32:59]-->initialised setup and read configuration file
-[INFO][08:32:59]-->Connection Established
-[INFO][08:33:08]-->initialised setup and read configuration file
-[INFO][08:33:08]-->Connection Established
-[INFO][08:33:19]-->initialised setup and read configuration file
-[INFO][08:33:19]-->Connection Established
-[INFO][09:43:51]-->initialised setup and read configuration file
-[INFO][09:43:52]-->Connection Established
-[INFO][09:43:57]-->initialised setup and read configuration file
-[INFO][09:43:57]-->Connection Established
+[INFO][13:52:35]-->initialised setup and read configuration file
+[INFO][13:52:35]-->Connection Established
+[INFO][13:52:55]-->initialised setup and read configuration file
+[ERROR][13:52:55]-->ERROR initialising the database. The error is: No such file or directory
+[INFO][17:33:19]-->initialised setup and read configuration file
+[ERROR][17:33:19]-->ERROR initialising the database. The error is: No such file or directory
+[INFO][17:33:20]-->initialised setup and read configuration file
+[ERROR][17:33:20]-->ERROR initialising the database. The error is: No such file or directory
+[INFO][17:33:22]-->initialised setup and read configuration file
+[ERROR][17:33:22]-->ERROR initialising the database. The error is: No such file or directory
+[INFO][17:33:40]-->initialised setup and read configuration file
+[ERROR][17:33:40]-->ERROR initialising the database. The error is: No such file or directory
+[INFO][17:34:17]-->initialised setup and read configuration file
+[INFO][17:34:17]-->Connection Established
+[INFO][17:34:39]-->initialised setup and read configuration file
+[INFO][17:34:39]-->Connection Established
+[INFO][17:35:04]-->initialised setup and read configuration file
+[INFO][17:35:04]-->Connection Established
+[INFO][17:35:44]-->initialised setup and read configuration file
+[INFO][17:35:44]-->Connection Established
+[INFO][17:36:48]-->initialised setup and read configuration file
+[INFO][17:36:48]-->Connection Established
+[INFO][17:38:00]-->initialised setup and read configuration file
+[INFO][17:38:00]-->Connection Established
+[INFO][17:38:16]-->initialised setup and read configuration file
+[INFO][17:38:16]-->Connection Established
+[INFO][17:38:50]-->initialised setup and read configuration file
+[INFO][17:38:50]-->Connection Established
+[INFO][17:59:03]-->initialised setup and read configuration file
+[INFO][17:59:03]-->Connection Established
+[INFO][17:59:22]-->initialised setup and read configuration file
+[INFO][17:59:22]-->Connection Established
+[INFO][17:59:30]-->initialised setup and read configuration file
+[INFO][17:59:30]-->Connection Established
+[INFO][17:59:57]-->initialised setup and read configuration file
+[INFO][17:59:57]-->Connection Established

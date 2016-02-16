@@ -90,7 +90,7 @@ use Lenv\App\Core\Logger\LogLevel;
 
  		if($link->connect_error)
  		{
- 			$this->fileLogger->log('ERROR initialising the database. The error is: '.$link->connect_error, LogLevel::ERROR);
+ 			$this->fileLogger->error('ERROR initialising the database. The error is: '.$link->connect_error);
  		}
  		else
  		{

@@ -1,7 +1,6 @@
 <?php
 
  namespace Lenv\App\Models;
- use Lenv\App\Config\Setup;
 
 class Newsletter 
 {
@@ -99,11 +98,16 @@ class Newsletter
 		if(!$result){
 			return ['ERROR'];
 		}
-
+		$result_arr = array();
+		while ($result_arr['newsItem'][] = mysqli_fetch_assoc($result)){}
+		
+		$result_arr['newsItem'] = array_filter($result_arr['newsItem']);
+		//var_dump($result_arr);
+		
 		//process the query result to see if there are new records or not
 
 		//if records > 0 paginate the results
-		return [$statement];
+		return $result_arr;
 	}
 
 }

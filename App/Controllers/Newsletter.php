@@ -20,7 +20,8 @@ class Newsletter extends BaseController
 	public function indexAction()
 	{
 		//$this->newsletter->createNewsTable();
-		var_dump($this->newsletter->getNews());
-	    return $this->render('views/newsletter/index',['test']);
+		$news = $this->newsletter->getNews();	
+		//var_dump($news);
+	    return $this->render('views/newsletter/index', $news);
 	}
 }
