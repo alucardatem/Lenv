@@ -41,9 +41,9 @@
 				</div>
 			</div>
 			<div class="container">
-			    <div class="page-header">
-			      <h1>Newsletter</h1>
-			    </div>
+			    <!-- <div class="page-header">
+			      <h1><?php ?></h1>
+			    </div> -->
 			    <?=$content?>
   			</div>
 		</div>

@@ -67,6 +67,9 @@
 				<button type="submit" class="btn btn-default" name='Add' id="Add">
 					Add
 				</button>
+				<button type="submit" class="btn btn-default" name='Logout' id="Logout">
+					Logout
+				</button>
 			</div>
 		</div>
 	</form>

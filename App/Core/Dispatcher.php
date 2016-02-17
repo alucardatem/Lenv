@@ -31,7 +31,7 @@
                 return $this->controllerClassName;
             }
 
-            $controller = (!empty($this->queryVars['controller'])) ? $this->queryVars['controller'] : 'home';
+            $controller = (!empty($this->queryVars['controller'])) ? $this->queryVars['controller'] : 'newsletter';
             $this->controllerClassName = '\\Lenv\App\Controllers\\' .
                                          ucfirst(strtolower($controller));
             return $this->controllerClassName;
