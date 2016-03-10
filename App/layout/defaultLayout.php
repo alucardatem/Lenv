@@ -9,6 +9,7 @@
 		<link href="/~rotariudan/Lenv/assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/~rotariudan/Lenv/assets/css/styles.css" rel="stylesheet">
 		<script src="/~rotariudan/Lenv/assets/js/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/~rotariudan/Lenv/assets/js/pouchdb-5.3.0.min.js"></script>
 	</head>
 	<!-- Wrap all page content here -->
 		<div id="wrap">
